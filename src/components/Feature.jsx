@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  FaWind, 
-  FaLayerGroup, 
-  FaCrosshairs, 
-  FaWifi, 
-  FaShieldHalved, 
-  FaBolt, 
-  FaArrowRight 
+import {
+  FaWind,
+  FaLayerGroup,
+  FaCrosshairs,
+  FaWifi,
+  FaShieldHalved,
+  FaBolt,
+  FaGaugeHigh,
+  FaHeadset,
+  FaArrowRight
 } from 'react-icons/fa6';
 
 const Feature = () => {
@@ -47,6 +49,18 @@ const Feature = () => {
       icon: <FaBolt />,
       title: "Rapid Magnetic Fast-Charge",
       desc: "High-density lithium smart cells integrated seamlessly into the downtube, achieving 80% capacity in just 60 minutes.",
+    },
+    {
+      id: 7,
+      icon: <FaGaugeHigh />,
+      title: "Di2 Electronic Precision Shifting",
+      desc: "Shimano Dura-Ace Di2 wireless 12-speed drivetrain delivers lightning-fast, whisper-quiet gear changes under full sprint load.",
+    },
+    {
+      id: 8,
+      icon: <FaHeadset />,
+      title: "Pro Fit & Lifetime Support",
+      desc: "3D motion-capture bike fitting, lifetime carbon frame warranty, and 24/7 concierge service keep you riding at your peak.",
     },
   ];
 

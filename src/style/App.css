@@ -1490,54 +1490,199 @@ a {
 }
 
 /* ==========================================================================
-   MOBILE & RESPONSIVE PERFECTION (Full Natural Width, No Narrow Center)
+   MOBILE & RESPONSIVE PERFECTION (Controlled Max-Width, Centered Text)
    ========================================================================== */
-@media (max-width: 991px) {
-  .container {
-    max-width: 100% !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-  }
+.container {
+  max-width: 1300px;
+}
 
-  .hero-content,
-  .hero-main-title,
-  .hero-lead-text {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+.features-grid,
+.deals-product-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}
 
-  .hero-image-stage,
-  .hero-stats-row,
-  .about-card-canvas,
-  .contact-card-canvas,
-  .rideglide-content {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+.features-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
 
-  .floating-spec-card {
-    position: static;
-    margin: 10px;
-  }
-
-  .about-card-canvas,
-  .contact-card-canvas {
-    padding: 32px 24px;
-  }
-
-  .rideglide-content {
-    padding: 36px 24px;
-  }
-
-  .rideglide-specs-grid {
+@media (max-width: 1199px) {
+  .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
   .container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    max-width: 1040px;
+  }
+
+  .hero-main-title {
+    max-width: 860px;
+  }
+
+  .hero-lead-text {
+    max-width: 680px;
+  }
+
+  .about-card-canvas,
+  .contact-card-canvas {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    max-width: 890px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .about-section-wrapper,
+  .rideglide-wrapper,
+  .deals-section-wrapper,
+  .features-section-wrapper,
+  .testimonials-section-wrapper,
+  .contact-section-wrapper {
+    padding: 56px 0;
+  }
+
+  .hero-main-title {
+    max-width: 640px;
+  }
+
+  .hero-lead-text,
+  .section-subtitle {
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .floating-spec-card {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .floating-spec-card.card-left {
+    top: 12px;
+    left: 12px;
+  }
+
+  .floating-spec-card.card-right {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .about-card-canvas,
+  .contact-card-canvas {
+    padding: 28px 22px;
+  }
+
+  /* Stacked columns: center text content */
+  .about-card-canvas,
+  .contact-card-canvas .text-start,
+  .testimonials-section-wrapper .text-start {
+    text-align: center;
+  }
+
+  .about-feature-item {
+    text-align: left;
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-image-wrapper img {
+    height: 360px;
+  }
+
+  .rideglide-banner-card {
+    min-height: 440px;
+  }
+
+  .rideglide-gradient-overlay {
+    background: linear-gradient(180deg, rgba(11, 15, 25, 0.75) 0%, rgba(11, 15, 25, 0.9) 100%);
+  }
+
+  .rideglide-content {
+    padding: 36px 24px;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .rideglide-spec-box {
+    text-align: center;
+  }
+
+  .rideglide-specs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .contact-info-panel {
+    padding: 28px 22px;
+    margin-bottom: 24px;
+    height: auto;
+  }
+
+  .contact-method-item {
+    text-align: left;
+  }
+
+  .velofy-footer {
+    padding: 52px 0 24px 0;
+  }
+
+  .footer-bottom-bar {
+    margin-top: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .about-section-wrapper,
+  .rideglide-wrapper,
+  .deals-section-wrapper,
+  .features-section-wrapper,
+  .testimonials-section-wrapper,
+  .contact-section-wrapper {
+    padding: 44px 0;
+  }
+
+  .section-title,
+  .section-subtitle {
+    text-align: center;
+  }
+
+  .deals-category-nav {
+    margin: 20px auto 28px auto;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .velofy-feature-card {
+    text-align: center;
+  }
+
+  .feature-icon-bubble {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .velofy-footer {
+    text-align: center;
+  }
+
+  .footer-brand-title,
+  .velofy-footer .d-flex {
+    justify-content: center;
+  }
+
+  .footer-bottom-bar {
+    justify-content: center;
+    text-align: center;
   }
 
   .hero-wrapper {
@@ -1597,8 +1742,8 @@ a {
   }
 
   .rideglide-specs-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
   .back-to-top-btn {
@@ -1640,11 +1785,43 @@ a {
     gap: 10px;
     margin-bottom: 30px;
   }
+
+  .hero-lead-text {
+    font-size: 0.95rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .rideglide-specs-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rideglide-title {
+    font-size: 1.85rem;
+  }
+
+  .about-image-wrapper img {
+    height: 240px;
+  }
+
+  .bike-card-media {
+    height: 210px;
+    padding: 14px;
+  }
+
+  .bike-card-body,
+  .velofy-feature-card,
+  .testimonial-card {
+    padding: 20px 18px;
+  }
+
+  .velofy-modal-content {
+    padding: 22px 16px;
+  }
 }
 
-/* ==========================================================================
-   VELOFY INTERACTIVE MODALS & TOAST NOTIFICATION
-   ========================================================================== */
 .velofy-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -1710,4 +1887,22 @@ a {
   font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.12);
   pointer-events: none;
+}
+
+/* Contact form <-> success crossfade (no blink / height jump) */
+.contact-form-stage {
+  display: grid;
+  min-height: 480px;
+  align-items: center;
+}
+
+.contact-form-stage > * {
+  grid-area: 1 / 1;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-form-stage {
+    min-height: 0;
+  }
 }

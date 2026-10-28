@@ -111,14 +111,19 @@ const Contact = () => {
 
             {/* Right Column: Interactive Booking Form */}
             <div className="col-lg-7">
-              <AnimatePresence mode="wait">
+              <motion.div
+                layout
+                transition={{ layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] } }}
+                className="contact-form-stage"
+              >
+              <AnimatePresence initial={false}>
                 {submitted ? (
                   <motion.div
                     key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="p-5 text-center h-100 d-flex flex-column align-items-center justify-content-center"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] } }}
+                    exit={{ opacity: 0, y: -12, transition: { duration: 0.25, ease: 'easeOut' } }}
+                    className="p-4 p-md-5 text-center d-flex flex-column align-items-center justify-content-center"
                   >
                     <div
                       style={{
@@ -166,9 +171,9 @@ const Contact = () => {
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] } }}
+                    exit={{ opacity: 0, y: -12, transition: { duration: 0.25, ease: 'easeOut' } }}
                   >
                     <div className="row g-4">
                       {/* Name */}
@@ -258,6 +263,7 @@ const Contact = () => {
                   </motion.form>
                 )}
               </AnimatePresence>
+              </motion.div>
             </div>
           </div>
         </div>

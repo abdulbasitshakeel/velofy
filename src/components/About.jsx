@@ -77,7 +77,7 @@ const About = () => {
               <motion.div variants={itemVariants}>
                 <h2 className="section-title">
                   Crafting The Future Of <br />
-                  <span className="text-orange">Two-Wheeled Innovation</span>
+                  <span className="text-orange">Innovation</span>
                 </h2>
                 <p className="lead text-muted" style={{ fontSize: "1.05rem", color: "#334155" }}>
                   At Velofy, cycling is more than getting from A to B — it’s about effortless speed, precision, and pushing boundaries.
