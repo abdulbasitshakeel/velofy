@@ -1,161 +1,115 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-// SVG Icons
-const AerodynamicIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e64210" strokeWidth="1.5">
-    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-  </svg>
-);
-
-const CarbonFiberIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0072bc" strokeWidth="1.5">
-    <path d="M14 9l-6 6m0-6l6 6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-  </svg>
-);
-
-const PrecisionIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#dc3545" strokeWidth="1.5">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    <circle cx="12" cy="9" r="3" fill="#dc3545"/>
-  </svg>
-);
-
-const SmartIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2c3e50" strokeWidth="1.5">
-    <rect x="5" y="2" width="14" height="20" rx="2"/>
-    <path d="M12 18h.01"/>
-  </svg>
-);
+import { 
+  FaWind, 
+  FaLayerGroup, 
+  FaCrosshairs, 
+  FaWifi, 
+  FaShieldHalved, 
+  FaBolt, 
+  FaArrowRight 
+} from 'react-icons/fa6';
 
 const Feature = () => {
-  const features = [
+  const featuresList = [
     {
       id: 1,
-      title: "Aerodynamic Mastery",
-      description: "Wind-tunnel optimized frame reduces drag by 27% compared to standard models",
-      icon: <AerodynamicIcon />,
-      bgClass: "bg-velofy-orange-light"
+      icon: <FaWind />,
+      title: "Wind-Tunnel Aero Sculpting",
+      desc: "NACA airfoil tube profiles engineered and validated in sub-sonic wind tunnels, reducing aerodynamic drag by 28.4% at 45 km/h.",
     },
     {
       id: 2,
-      title: "Carbon Fiber Excellence",
-      description: "Handcrafted T1000 carbon frame weighing just 790g",
-      icon: <CarbonFiberIcon />,
-      bgClass: "bg-velofy-blue-light"
+      icon: <FaLayerGroup />,
+      title: "Toray T1000 Carbon Weave",
+      desc: "Handcrafted aerospace-grade carbon prepreg delivering a featherweight 790g frame while resisting extreme torsional sprinting forces.",
     },
     {
       id: 3,
-      title: "Precision Engineering",
-      description: "Laser-aligned components with ±0.1mm tolerance for perfect power transfer",
-      icon: <PrecisionIcon />,
-      bgClass: "bg-velofy-red-light"
+      icon: <FaCrosshairs />,
+      title: "Laser-Toleranced Geometry",
+      desc: "Laser-measured bottom bracket shells and thru-axle dropouts with ±0.05mm tolerance guarantee zero friction and instant acceleration.",
     },
     {
       id: 4,
-      title: "Smart Integration",
-      description: "Built-in performance tracking with ANT+/Bluetooth connectivity",
-      icon: <SmartIcon />,
-      bgClass: "bg-velofy-gray-light"
-    }
+      icon: <FaWifi />,
+      title: "Velofy Smart IoT Telemetry",
+      desc: "Real-time cadence, gradient sensor, wattage monitoring, and satellite GPS anti-theft geofencing synced straight to your smartphone.",
+    },
+    {
+      id: 5,
+      icon: <FaShieldHalved />,
+      title: "4-Piston Hydraulic Braking",
+      desc: "Thermal-finned IceTech ceramic pistons provide surgical brake modulation and zero brake fade on steep alpine descents.",
+    },
+    {
+      id: 6,
+      icon: <FaBolt />,
+      title: "Rapid Magnetic Fast-Charge",
+      desc: "High-density lithium smart cells integrated seamlessly into the downtube, achieving 80% capacity in just 60 minutes.",
+    },
   ];
 
-  const container = {
+  const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.12,
+      },
+    },
   };
 
-  const item = {
-    hidden: { y: 20, opacity: 0 },
+  const itemVariants = {
+    hidden: { y: 24, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
-    <section className="feature">
-      <style jsx>{`
-        .bg-velofy-orange-light {
-          background-color: rgba(230, 66, 16, 0.08);
-          border-left: 4px solid #e64210;
-        }
-        .bg-velofy-blue-light {
-          background-color: rgba(0, 114, 188, 0.08);
-          border-left: 4px solid #0072bc;
-        }
-        .bg-velofy-red-light {
-          background-color: rgba(220, 53, 69, 0.08);
-          border-left: 4px solid #dc3545;
-        }
-        .bg-velofy-gray-light {
-          background-color: rgba(44, 62, 80, 0.08);
-          border-left: 4px solid #2c3e50;
-        }
-        .feature-card {
-          transition: all 0.3s ease;
-          box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-        .feature-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-        }
-      `}</style>
-      
+    <section className="features-section-wrapper" id="features">
       <div className="container">
-        <div className="fearure-work">
-          <section className="feature-section">
-            <div className="deals-header">
-              <div className="col-lg-12">
-                <h1 className="about-title display-5 fw-bold mb-2" style={{color:"#2c3e50",textAlign:"center",fontSize:"57px"}}>
-                  <span style={{color :"#e64210"}}>VELOFY  </span> FEATURES</h1>
-              </div>
-              <p className="deals-subtitle">Where cutting-edge engineering meets cycling perfection</p>
-            </div>
+        {/* Header - No Pill */}
+        <div className="text-center">
+          <h2 className="section-title">
+            Engineered For The <span className="text-orange">Podium</span>
+          </h2>
+          <p className="section-subtitle">
+            Every millimeter of a Velofy bicycle is crafted with obsessive attention to speed,
+            weight savings, and intelligent rider connectivity.
+          </p>
+        </div>
 
-            <motion.div 
-              className="row g-4"
-              variants={container}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
+        {/* Features 6-Card Grid with Font Awesome */}
+        <motion.div
+          className="features-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {featuresList.map((f) => (
+            <motion.article
+              key={f.id}
+              className="velofy-feature-card"
+              variants={itemVariants}
             >
-              {features.map((feature) => (
-                <motion.div 
-                  key={feature.id} 
-                  className="col-md-6"
-                  variants={item}
-                >
-                  <div className={`p-4 rounded-3 h-100 feature-card ${feature.bgClass}`}>
-                    <div className="d-flex">
-                      <div className="me-4">
-                        <span className="display-4">{feature.icon}</span>
-                      </div>
-                      <div>
-                        <h3 className="h4 fw-bold mb-3">{feature.title}</h3>
-                        <p className="mb-0">{feature.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-            
-            <div className="text-center mt-5">
-              <button className="btn btn-lg btn-dark rounded-pill px-4 py-3" style={{backgroundColor: "#e64210", borderColor: "#e64210"}}>
-                Connect Now<i className="fas fa-arrow-right ms-2"></i>
-              </button>
-            </div>
-          </section>
+              <div className="feature-icon-bubble">{f.icon}</div>
+              <h3 className="feature-card-title">{f.title}</h3>
+              <p className="feature-card-desc">{f.desc}</p>
+            </motion.article>
+          ))}
+        </motion.div>
+
+        {/* Feature Action CTA */}
+        <div className="text-center mt-5 pt-3">
+          <a href="#contact" className="btn-velofy-primary">
+            <span>Schedule Studio Fitting Session</span>
+            <FaArrowRight />
+          </a>
         </div>
       </div>
     </section>

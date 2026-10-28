@@ -1,131 +1,96 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { 
+  FaBolt, 
+  FaBatteryFull, 
+  FaClock, 
+  FaArrowRight 
+} from "react-icons/fa6";
 
 const RideGlide = () => {
-  // Animation variants
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const textVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
       y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const buttonVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "backOut"
-      }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
     },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0px 5px 20px rgba(230, 66, 16, 0.5)",
-      transition: {
-        duration: 0.3,
-        yoyo: 3
-      }
-    },
-    tap: {
-      scale: 0.95
-    }
-  };
-
-  const imageOverlayVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 0.3,
-      transition: {
-        duration: 1.5
-      }
-    }
   };
 
   return (
-    <>
-      <section className="ride">
-        <div className="container">
-          <div className="rideglide-work">
-            <section className="rideglide-section my-5">
-              <div className="container">
-                <div className="row">
-                  <div className="col-12 position-relative p-0">
-                    <motion.div 
-                      className="position-absolute top-50 start-50 translate-middle text-center w-100 px-3 mt-4 z-index-2"
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-100px" }}
-                      variants={containerVariants}
-                    >
-                      <motion.h1 
-                        className="display-2 fw-bold mb-3" 
-                        style={{ color: 'white', textShadow: '2px 2px 8px rgba(0,0,0,0.8)', letterSpacing: '1.5px'}}
-                        variants={textVariants}
-                      >
-                        RIDE GLIDE JOURNEY
-                      </motion.h1>
-                      <motion.p 
-                        className="h4 text-light d-none d-md-block mb-4" 
-                        style={{textShadow: '1px 1px 4px rgba(0,0,0,0.6)', fontStyle: 'italic'}}
-                        variants={textVariants}
-                      >
-                        Premium Cycling Experience
-                      </motion.p>
-                      <motion.button 
-                        className="btn rideglide-btn btn-orange"
-                        variants={buttonVariants}
-                        whileHover="hover"
-                        whileTap="tap"
-                      >
-                        Explore Now
-                      </motion.button>
-                    </motion.div>
-                    <motion.div 
-                      className="ride-image position-relative"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1 }}
-                    >
-                      <motion.div 
-                        className="image-overlay"
-                        variants={imageOverlayVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                      ></motion.div>
-                      <img 
-                        src="/images/rideglide.jpg" 
-                        alt="Velofy RideGlide" 
-                        className="img-fluid w-100" 
-                        style={{ maxHeight: '600px', objectFit: 'cover' }}
-                      />
-                    </motion.div>
-                  </div>
+    <section className="rideglide-wrapper" id="rideglide">
+      <div className="container">
+        <motion.div
+          className="rideglide-banner-card"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={containerVariants}
+        >
+          {/* Background Cinematic Banner */}
+          <img
+            src="/images/rideglide-banner.jpg"
+            alt="Velofy Ride and Glide Smart Electric Commuter Bicycle at Twilight"
+            className="rideglide-bg-img"
+            loading="lazy"
+            width="1280"
+            height="580"
+          />
+
+          {/* Deep Contrast Gradient Overlay */}
+          <div className="rideglide-gradient-overlay" aria-hidden="true"></div>
+
+          {/* Foreground Content - No Pills */}
+          <div className="rideglide-content">
+            <h2 className="rideglide-title">
+              The Ride & Glide <br />
+              <span style={{ color: "#FF7A45" }}>Urban Experience</span>
+            </h2>
+
+            <p className="rideglide-desc">
+              Transform your daily commute into an effortless thrill. Featuring smart torque-assist sensors
+              that instantly match your pedal cadence, an integrated 720Wh ultra-dense battery,
+              and illuminated ambient frame lighting for total nighttime confidence.
+            </p>
+
+            {/* Micro Specs Grid with Font Awesome */}
+            <div className="rideglide-specs-grid">
+              <div className="rideglide-spec-box">
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <FaBolt style={{ color: '#FF5722' }} />
+                  <span className="rideglide-spec-val">85 Nm</span>
                 </div>
+                <div className="rideglide-spec-lbl">Whisper-Quiet Torque</div>
               </div>
-            </section>
+              <div className="rideglide-spec-box">
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <FaBatteryFull style={{ color: '#FF5722' }} />
+                  <span className="rideglide-spec-val">120 km</span>
+                </div>
+                <div className="rideglide-spec-lbl">Single Charge Range</div>
+              </div>
+              <div className="rideglide-spec-box">
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <FaClock style={{ color: '#FF5722' }} />
+                  <span className="rideglide-spec-val">3.2 hrs</span>
+                </div>
+                <div className="rideglide-spec-lbl">Rapid Fast-Charge</div>
+              </div>
+            </div>
+
+            <div className="d-flex align-items-center gap-3 flex-wrap">
+              <a href="#contact" className="btn-velofy-primary">
+                <span>Book Test Glide</span>
+                <FaArrowRight />
+              </a>
+              <a href="#deals" className="btn-velofy-outline-dark">
+                <span>View E-Bike Deals</span>
+              </a>
+            </div>
           </div>
-        </div>    
-      </section>
-    </>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
